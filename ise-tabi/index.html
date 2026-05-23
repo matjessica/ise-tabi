@@ -2,313 +2,352 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>秋の伊勢志摩旅 栞</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>秋の伊勢志摩旅</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <div id="progress-bar"></div>
-  <div id="confetti-container"></div>
+  <div id="progress" aria-hidden="true"></div>
 
-  <!-- ════════ ヘッダー ════════ -->
-  <header>
-    <canvas id="wave-canvas"></canvas>
-    <div class="header-content">
-      <p class="header-label">Travel Bookmark</p>
-      <h1 class="header-title">秋の伊勢志摩旅</h1>
-      <p class="header-sub">Ise · Toba · Kashikojima</p>
-      <p class="header-catch">しまかぜに揺られて、<br>海の幸と祈りの旅へ</p>
+  <!-- ① Hero ───────────────────────────── -->
+  <section class="s-hero" id="hero">
+    <div class="img-block" data-fallback="#050e1a">
+      <div class="parallax-wrap">
+        <img class="parallax-img"
+             src="assets/images/hero.jpg"
+             srcset="assets/images/hero.jpg 1x, assets/images/hero.jpg 2x"
+             alt="英虞湾の朝靄"
+             loading="eager"
+             decoding="async">
+      </div>
+      <div class="overlay overlay-both">
+        <div class="hero-body" id="hero-body">
+          <p class="hero-en fade-hero">Ise-Shima Journey</p>
+          <h1 class="hero-h1">
+            <span class="line-wrap"><span class="line-inner fade-hero" style="animation-delay:.1s">秋の伊勢志摩旅</span></span>
+          </h1>
+          <p class="hero-catch fade-hero" style="animation-delay:.25s">祈りと海と、しまかぜと。</p>
+          <p class="hero-meta fade-hero" style="animation-delay:.4s">2泊3日 · 女性2名 · 大阪難波発</p>
+        </div>
+        <div class="scroll-hint" aria-hidden="true">
+          <span class="scroll-arrow">↓</span>
+          <span class="scroll-label">Scroll</span>
+        </div>
+      </div>
     </div>
-    <div class="header-scroll-hint">
-      <span class="scroll-arrow"></span>
-      <span class="scroll-text">スクロールして旅へ</span>
+  </section>
+
+  <!-- ② Summary ────────────────────────── -->
+  <section class="s-summary s-light" id="summary">
+    <div class="inner">
+      <div class="line-draw reveal-line"></div>
+      <div class="stats">
+        <div class="stat fade-in">
+          <span class="stat-num" data-count="2">0</span>
+          <p class="stat-unit">泊3日</p>
+          <p class="stat-desc">非日常の時間</p>
+        </div>
+        <div class="stat fade-in" style="transition-delay:.12s">
+          <span class="stat-num" data-count="3">0</span>
+          <p class="stat-unit">つの景色</p>
+          <p class="stat-desc">海・神域・英虞湾</p>
+        </div>
+        <div class="stat fade-in" style="transition-delay:.24s">
+          <span class="stat-num" data-count="0">0</span>
+          <p class="stat-unit">回の運転</p>
+          <p class="stat-desc">全て電車と船</p>
+        </div>
+      </div>
     </div>
-  </header>
+  </section>
 
-  <!-- バッジ -->
-  <div class="badge-scroll">
-    <span class="badge">🚃 しまかぜ乗車</span>
-    <span class="badge">🏨 2泊3日</span>
-    <span class="badge">🌊 鳥羽・伊勢・賢島</span>
-    <span class="badge">👘 女性2名旅</span>
-    <span class="badge">🍣 海の幸三昧</span>
-  </div>
+  <!-- ③ Day 1 ───────────────────────────── -->
+  <section class="s-day s-dark" id="day1">
 
-  <main>
+    <header class="day-sticky day-sticky-dark">
+      <span class="day-tag">Day 1</span>
+      <span class="day-dash">—</span>
+      <span class="day-place">鳥羽</span>
+    </header>
 
-    <!-- ════════ 1日目 ════════ -->
-    <section class="day-section" id="day1">
-      <div class="day-header fade-up">
-        <span class="day-num">01</span>
-        <div class="day-header-text">
-          <h2 class="day-title">しまかぜで出発</h2>
-          <p class="day-subtitle">大阪難波 → 鳥羽</p>
+    <!-- shimakaze -->
+    <div class="img-block fade-in" data-fallback="#0d1b2a">
+      <div class="parallax-wrap">
+        <img class="parallax-img"
+             src="assets/images/shimakaze.jpg"
+             srcset="assets/images/shimakaze.jpg 1x, assets/images/shimakaze.jpg 2x"
+             alt="しまかぜ走行シーン"
+             loading="lazy"
+             decoding="async">
+      </div>
+      <div class="overlay overlay-bottom">
+        <div class="overlay-text">
+          <h2 class="overlay-title reveal-text">しまかぜ</h2>
+          <p class="overlay-sub">大阪難波 10:40発 → 鳥羽 12:16着</p>
         </div>
       </div>
+    </div>
 
-      <div class="timeline">
-
-        <div class="tl-item fade-up" data-delay="0.05">
-          <div class="tl-dot" data-idx="0"></div>
-          <div class="card move-card">
-            <p class="move-route">大阪難波 10:40 → 鳥羽駅 12:16</p>
-            <p class="move-detail">近鉄特急「しまかぜ」乗車 ／ 約96分</p>
-          </div>
-        </div>
-
-        <div class="tl-item fade-up" data-delay="0.1">
-          <div class="tl-dot" data-idx="1"></div>
-          <div class="card">
-            <p class="card-icon">🐟</p>
-            <h3 class="card-title">鳥羽水族館</h3>
-            <div class="card-body">
-              <ul>
-                <li>国内最多・約1,200種を飼育</li>
-                <li>ラッコ・ジュゴン（国内唯一）</li>
-                <li>アシカショー（13:00 / 15:30 狙い目）</li>
-                <li>全館バリアフリー対応</li>
-                <li>開館直後が空いていておすすめ</li>
-                <li>所要目安：2〜3時間</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="tl-item fade-up" data-delay="0.15">
-          <div class="tl-dot" data-idx="2"></div>
-          <div class="flip-wrapper" role="button" aria-label="ワンポイントアドバイス">
-            <div class="flip-card">
-              <div class="flip-front">
-                <span class="flip-icon">🐦</span>
-                <span class="flip-label">今日のおすすめは？</span>
-                <span class="flip-hint">タップして確認 ▸</span>
-              </div>
-              <div class="flip-back">
-                <p class="flip-text">開館直後12:30ごろが一番空いています。<br>アシカショーは13:00・15:30が狙い目。<br>ラッコのお食事タイムも要チェック！</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="tl-item fade-up" data-delay="0.2">
-          <div class="tl-dot" data-idx="3"></div>
-          <div class="card">
-            <p class="card-icon">🏨</p>
-            <h3 class="card-title">宿泊｜鳥羽の温泉旅館</h3>
-            <div class="card-body">
-              <ul>
-                <li>鳥羽湾を望む露天温泉</li>
-                <li>伊勢海老・アワビの海の幸ディナー</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
+    <!-- aquarium -->
+    <div class="img-block fade-in" data-fallback="#061428">
+      <div class="parallax-wrap">
+        <img class="parallax-img"
+             src="assets/images/aquarium.jpg"
+             srcset="assets/images/aquarium.jpg 1x, assets/images/aquarium.jpg 2x"
+             alt="鳥羽水族館"
+             loading="lazy"
+             decoding="async">
       </div>
-    </section>
-
-    <!-- day セパレーター -->
-    <div class="day-sep fade-up"></div>
-
-    <!-- ════════ 2日目 ════════ -->
-    <section class="day-section" id="day2">
-      <div class="day-header fade-up">
-        <span class="day-num">02</span>
-        <div class="day-header-text">
-          <h2 class="day-title">お伊勢参りと</h2>
-          <p class="day-subtitle">おかげ横丁 → 賢島</p>
+      <div class="overlay overlay-bottom">
+        <div class="overlay-text">
+          <h2 class="overlay-title reveal-text">鳥羽水族館</h2>
+          <p class="overlay-sub">国内唯一のジュゴン。約1,200種。</p>
         </div>
       </div>
+    </div>
 
-      <div class="timeline">
-
-        <div class="tl-item fade-up" data-delay="0.05">
-          <div class="tl-dot" data-idx="0"></div>
-          <div class="card move-card">
-            <p class="move-route">鳥羽駅 → 宇治山田駅（近鉄 約20分）</p>
-            <p class="move-detail">宇治山田駅からバスで内宮前（約10分）</p>
-          </div>
-        </div>
-
-        <div class="tl-item fade-up" data-delay="0.1">
-          <div class="tl-dot" data-idx="1"></div>
-          <div class="card">
-            <p class="card-icon">⛩</p>
-            <h3 class="card-title">伊勢神宮 内宮</h3>
-            <div class="card-body">
-              <ul>
-                <li>日本最高の聖地・2000年の歴史</li>
-                <li>宇治橋〜正宮をゆっくり参拝（約90分）</li>
-                <li>秋は木漏れ日と凛とした空気が格別</li>
-                <li>参拝時間：5:00〜17:00（10月）</li>
-                <li>無料レンタル車いすあり</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="tl-item fade-up" data-delay="0.15">
-          <div class="tl-dot" data-idx="2"></div>
-          <div class="flip-wrapper" role="button" aria-label="ワンポイントアドバイス">
-            <div class="flip-card">
-              <div class="flip-front">
-                <span class="flip-icon">⛩</span>
-                <span class="flip-label">参拝のマナーは？</span>
-                <span class="flip-hint">タップして確認 ▸</span>
-              </div>
-              <div class="flip-back">
-                <p class="flip-text">参道は右側通行。正宮では感謝の気持ちを。<br>個人的なお願いは別宮の荒祭宮へどうぞ。<br>玉砂利道なので歩きやすい靴が必須です！</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="tl-item fade-up" data-delay="0.2">
-          <div class="tl-dot" data-idx="3"></div>
-          <div class="card">
-            <p class="card-icon">🍡</p>
-            <h3 class="card-title">おかげ横丁・おはらい町</h3>
-            <div class="card-body">
-              <ul>
-                <li>内宮前の江戸〜明治の門前町</li>
-                <li>赤福本店で出来立て赤福とお茶を</li>
-                <li>伊勢うどん・てこね寿司でランチ</li>
-                <li>お土産をのんびり散策（約2時間）</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="tl-item fade-up" data-delay="0.25">
-          <div class="tl-dot" data-idx="4"></div>
-          <div class="card">
-            <p class="card-icon">🦪</p>
-            <h3 class="card-title">ミキモト真珠島（体力次第で）</h3>
-            <div class="card-body">
-              <ul>
-                <li>鳥羽水族館のすぐ隣</li>
-                <li>海女の実演・真珠博物館</li>
-                <li>体力に余裕があれば立ち寄りを</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="tl-item fade-up" data-delay="0.3">
-          <div class="tl-dot" data-idx="5"></div>
-          <div class="card">
-            <p class="card-icon">🏨</p>
-            <h3 class="card-title">宿泊｜賢島のホテル</h3>
-            <div class="card-body">
-              <ul>
-                <li>英虞湾を望む絶景・温泉</li>
-                <li>志摩の海の幸コース料理</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <div class="day-sep fade-up"></div>
-
-    <!-- ════════ 3日目 ════════ -->
-    <section class="day-section" id="day3">
-      <div class="day-header fade-up">
-        <span class="day-num">03</span>
-        <div class="day-header-text">
-          <h2 class="day-title">英虞湾クルーズ</h2>
-          <p class="day-subtitle">賢島 → 大阪難波</p>
+    <!-- detail -->
+    <div class="detail-wrap s-light">
+      <div class="inner">
+        <button class="accordion-btn" aria-expanded="false">
+          <span>詳細を見る</span>
+          <svg class="acc-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+            <polyline points="2,4 7,10 12,4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="accordion-body">
+          <ul class="detail-list">
+            <li>ラッコ・ジュゴン・アシカショー</li>
+            <li>全館バリアフリー対応</li>
+            <li>所要目安：2〜3時間</li>
+            <li>開館直後12:30ごろが空いておすすめ</li>
+          </ul>
         </div>
       </div>
+    </div>
 
-      <div class="timeline">
+    <!-- stay -->
+    <div class="stay-block">
+      <p class="stay-title fade-in">鳥羽の温泉旅館（未定）</p>
+      <p class="stay-desc fade-in" style="transition-delay:.1s">鳥羽湾を望む温泉と、海の幸。</p>
+    </div>
 
-        <div class="tl-item fade-up" data-delay="0.05">
-          <div class="tl-dot" data-idx="0"></div>
-          <div class="card">
-            <p class="card-icon">⛴</p>
-            <h3 class="card-title">賢島エスパーニャクルーズ</h3>
-            <div class="card-body">
-              <ul>
-                <li>賢島港発・英虞湾を約50分遊覧</li>
-                <li>60の小島と真珠筏のリアス海岸の絶景</li>
-                <li>座ったまま楽しめる・体力消耗ほぼゼロ</li>
-                <li>事前予約がおすすめ</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+  </section>
 
-        <div class="tl-item fade-up" data-delay="0.1">
-          <div class="tl-dot" data-idx="1"></div>
-          <div class="flip-wrapper" role="button" aria-label="ワンポイントアドバイス">
-            <div class="flip-card">
-              <div class="flip-front">
-                <span class="flip-icon">⛴</span>
-                <span class="flip-label">クルーズのコツは？</span>
-                <span class="flip-hint">タップして確認 ▸</span>
-              </div>
-              <div class="flip-back">
-                <p class="flip-text">出航15分前には乗り場へ。2階席が景色◎。<br>秋の澄んだ空気で遠くの島まで見渡せます。<br>薄手の羽織を1枚持参すると安心！</p>
-              </div>
-            </div>
-          </div>
-        </div>
+  <!-- ④ Day 2 ───────────────────────────── -->
+  <section class="s-day s-light" id="day2">
 
-        <div class="tl-item fade-up" data-delay="0.15">
-          <div class="tl-dot" data-idx="2"></div>
-          <div class="card move-card">
-            <p class="move-route">賢島 12:00発 → 大阪難波 14:32着</p>
-            <p class="move-detail">近鉄特急 ／ 約2時間32分</p>
-          </div>
-        </div>
+    <header class="day-sticky day-sticky-light">
+      <span class="day-tag">Day 2</span>
+      <span class="day-dash">—</span>
+      <span class="day-place">伊勢・賢島</span>
+    </header>
 
+    <!-- naiku -->
+    <div class="img-block fade-in" data-fallback="#1a1200">
+      <div class="parallax-wrap">
+        <img class="parallax-img"
+             src="assets/images/naiku.jpg"
+             srcset="assets/images/naiku.jpg 1x, assets/images/naiku.jpg 2x"
+             alt="伊勢神宮内宮・参道"
+             loading="lazy"
+             decoding="async">
       </div>
-    </section>
-
-    <!-- ════════ 予約チェックリスト ════════ -->
-    <section class="checklist-section fade-up">
-      <h2 class="checklist-title">📋 予約チェックリスト</h2>
-      <div class="checklist">
-        <div class="check-item">
-          <div class="check-box"></div>
-          <span class="check-label">しまかぜ（往路：大阪難波→鳥羽）</span>
-          <span class="check-urgent">早めに！</span>
-        </div>
-        <div class="check-item">
-          <div class="check-box"></div>
-          <span class="check-label">近鉄特急（帰路：賢島→大阪難波）</span>
-        </div>
-        <div class="check-item">
-          <div class="check-box"></div>
-          <span class="check-label">鳥羽の旅館（1泊目）</span>
-        </div>
-        <div class="check-item">
-          <div class="check-box"></div>
-          <span class="check-label">賢島のホテル（2泊目）</span>
-        </div>
-        <div class="check-item">
-          <div class="check-box"></div>
-          <span class="check-label">賢島エスパーニャクルーズ</span>
+      <div class="overlay overlay-bottom">
+        <div class="overlay-text">
+          <h2 class="overlay-title reveal-text">伊勢神宮 内宮</h2>
+          <p class="overlay-sub">2,000年の祈りの場所へ。</p>
         </div>
       </div>
-      <div id="complete-banner">🎉 準備万端！素敵な旅を！ 🌊</div>
-    </section>
+    </div>
 
-  </main>
+    <div class="detail-wrap s-light">
+      <div class="inner">
+        <button class="accordion-btn" aria-expanded="false">
+          <span>詳細を見る</span>
+          <svg class="acc-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+            <polyline points="2,4 7,10 12,4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="accordion-body">
+          <ul class="detail-list">
+            <li>宇治橋〜正宮（約90分）</li>
+            <li>秋は木漏れ日と紅葉が格別</li>
+            <li>参拝時間：5:00〜17:00（10月）</li>
+            <li>無料レンタル車いすあり</li>
+            <li>玉砂利道あり。歩きやすい靴必須</li>
+          </ul>
+        </div>
+      </div>
+    </div>
 
-  <footer>
-    <div class="footer-anchor">⚓</div>
-    <p class="footer-title">秋の伊勢志摩旅 栞</p>
-    <p>Ise · Toba · Kashikojima</p>
-    <p style="margin-top:8px;font-size:11px;opacity:0.6;">良い旅を &#9734; Have a wonderful journey</p>
+    <!-- okage -->
+    <div class="img-block fade-in" data-fallback="#1a0e00">
+      <div class="parallax-wrap">
+        <img class="parallax-img"
+             src="assets/images/okage.jpg"
+             srcset="assets/images/okage.jpg 1x, assets/images/okage.jpg 2x"
+             alt="おかげ横丁"
+             loading="lazy"
+             decoding="async">
+      </div>
+      <div class="overlay overlay-bottom">
+        <div class="overlay-text">
+          <h2 class="overlay-title reveal-text">おかげ横丁</h2>
+          <p class="overlay-sub">赤福と伊勢うどん。旅の午後を。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-wrap s-light">
+      <div class="inner">
+        <button class="accordion-btn" aria-expanded="false">
+          <span>詳細を見る</span>
+          <svg class="acc-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+            <polyline points="2,4 7,10 12,4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="accordion-body">
+          <ul class="detail-list">
+            <li>赤福本店でお茶とひと休み</li>
+            <li>伊勢うどん・てこね寿司でランチ</li>
+            <li>お土産をのんびり（約2時間）</li>
+            <li>午前中が比較的空いておすすめ</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- optional -->
+    <div class="optional-spot s-light fade-in">
+      <div class="inner">
+        <p class="opt-tag">+ 体力次第で</p>
+        <p class="opt-title">ミキモト真珠島</p>
+        <p class="opt-desc">海女の実演・真珠博物館。<br>鳥羽水族館のすぐ隣。</p>
+      </div>
+    </div>
+
+    <!-- stay -->
+    <div class="stay-block stay-light">
+      <p class="stay-title fade-in">賢島のホテル（未定）</p>
+      <p class="stay-desc fade-in" style="transition-delay:.1s">英虞湾の夕景と、志摩の海の幸。</p>
+    </div>
+
+  </section>
+
+  <!-- ⑤ Day 3 ───────────────────────────── -->
+  <section class="s-day s-dark" id="day3">
+
+    <header class="day-sticky day-sticky-dark">
+      <span class="day-tag">Day 3</span>
+      <span class="day-dash">—</span>
+      <span class="day-place">英虞湾</span>
+    </header>
+
+    <!-- cruise -->
+    <div class="img-block fade-in" data-fallback="#001a2c">
+      <div class="parallax-wrap">
+        <img class="parallax-img"
+             src="assets/images/cruise.jpg"
+             srcset="assets/images/cruise.jpg 1x, assets/images/cruise.jpg 2x"
+             alt="エスパーニャクルーズ・英虞湾"
+             loading="lazy"
+             decoding="async">
+      </div>
+      <div class="overlay overlay-bottom">
+        <div class="overlay-text">
+          <h2 class="overlay-title reveal-text">賢島エスパーニャクルーズ</h2>
+          <p class="overlay-sub">60の島々と真珠筏。約50分の絶景。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-wrap s-light">
+      <div class="inner">
+        <button class="accordion-btn" aria-expanded="false">
+          <span>詳細を見る</span>
+          <svg class="acc-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+            <polyline points="2,4 7,10 12,4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="accordion-body">
+          <ul class="detail-list">
+            <li>座ったまま英虞湾を遊覧</li>
+            <li>体力消耗ほぼゼロ</li>
+            <li>2階席が景色◎</li>
+            <li>事前予約推奨</li>
+            <li>薄手の羽織を1枚持参すると安心</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- return -->
+    <div class="return-block">
+      <p class="return-route fade-in">賢島 12:00発 → 大阪難波 14:32着</p>
+      <p class="return-desc fade-in" style="transition-delay:.1s">近鉄特急で、ゆっくり帰阪。</p>
+    </div>
+
+  </section>
+
+  <!-- ⑥ Checklist ────────────────────────── -->
+  <section class="s-checklist s-light" id="checklist">
+    <div class="inner">
+      <p class="section-en fade-in">Before You Go</p>
+      <h2 class="section-h2 fade-in" style="transition-delay:.08s">旅の前に</h2>
+      <div class="line-draw reveal-line"></div>
+
+      <ul class="checklist" role="list">
+        <li class="check-item" data-idx="0">
+          <button class="check-btn" aria-pressed="false">
+            <span class="check-icon" aria-hidden="true"></span>
+            <span class="check-label">しまかぜ（往路：大阪難波→鳥羽）</span>
+            <span class="check-badge">最優先</span>
+          </button>
+        </li>
+        <li class="check-item" data-idx="1">
+          <button class="check-btn" aria-pressed="false">
+            <span class="check-icon" aria-hidden="true"></span>
+            <span class="check-label">近鉄特急（帰路：賢島→大阪難波）</span>
+          </button>
+        </li>
+        <li class="check-item" data-idx="2">
+          <button class="check-btn" aria-pressed="false">
+            <span class="check-icon" aria-hidden="true"></span>
+            <span class="check-label">鳥羽の旅館（1泊目）</span>
+          </button>
+        </li>
+        <li class="check-item" data-idx="3">
+          <button class="check-btn" aria-pressed="false">
+            <span class="check-icon" aria-hidden="true"></span>
+            <span class="check-label">賢島のホテル（2泊目）</span>
+          </button>
+        </li>
+        <li class="check-item" data-idx="4">
+          <button class="check-btn" aria-pressed="false">
+            <span class="check-icon" aria-hidden="true"></span>
+            <span class="check-label">賢島エスパーニャクルーズ</span>
+          </button>
+        </li>
+      </ul>
+
+      <p id="complete-msg" aria-live="polite" aria-atomic="true">準備完了 ✓</p>
+    </div>
+  </section>
+
+  <!-- ⑦ Footer ────────────────────────────── -->
+  <footer class="s-footer s-dark">
+    <div class="inner">
+      <p class="footer-main">良い旅を。</p>
+      <p class="footer-en">Bon Voyage</p>
+      <p class="footer-copy">© 2024 秋の伊勢志摩旅</p>
+    </div>
   </footer>
 
-  <script src="js/animation.js"></script>
+  <script src="js/scroll.js"></script>
   <script src="js/ui.js"></script>
-  <script src="js/main.js"></script>
 </body>
 </html>

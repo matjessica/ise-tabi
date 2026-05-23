@@ -1,102 +1,121 @@
-/* ui.js — カードフリップ・チェックリスト・紙吹雪 */
+/* =============================================
+   ui.js — アコーディオン・チェックリスト
+   ============================================= */
 
-/* ── カードフリップ ── */
-const CardFlip = (() => {
-  function init() {
-    document.querySelectorAll('.flip-wrapper').forEach(wrapper => {
-      wrapper.addEventListener('click', () => wrapper.classList.toggle('flipped'));
+(function () {
+  'use strict';
+
+  const STORAGE_KEY = 'ise-tabi-v2-checklist';
+
+  /* ─────────────────────────────────────────
+     1. アコーディオン
+  ───────────────────────────────────────── */
+  function initAccordion() {
+    document.querySelectorAll('.accordion-btn').forEach(btn => {
+      const body = btn.nextElementSibling;
+      if (!body || !body.classList.contains('accordion-body')) return;
+
+      btn.addEventListener('click', () => {
+        const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+        if (isOpen) {
+          // 閉じる
+          btn.setAttribute('aria-expanded', 'false');
+          body.classList.remove('open');
+        } else {
+          // 開く
+          btn.setAttribute('aria-expanded', 'true');
+          body.classList.add('open');
+        }
+      });
     });
   }
-  return { init };
-})();
 
-
-/* ── 紙吹雪（DOM自作） ── */
-const Confetti = (() => {
-  const colors = [
-    '#1ABC9C','#1B5E8A','#F1C40F','#E74C3C',
-    '#9B59B6','#2ECC71','#E67E22','#3498DB',
-  ];
-
-  function launch() {
-    const container = document.getElementById('confetti-container');
-    if (!container) return;
-
-    for (let i = 0; i < 90; i++) {
-      setTimeout(() => {
-        const el    = document.createElement('div');
-        el.className = 'confetti-piece';
-        const size   = 6 + Math.random() * 8;
-        const left   = Math.random() * 100;
-        const drift  = (Math.random() - 0.5) * 130 + 'px';
-        const dur    = 1.8 + Math.random() * 1.8;
-        const color  = colors[Math.floor(Math.random() * colors.length)];
-        const radius = Math.random() > 0.4 ? '50%' : '3px';
-        el.style.cssText = `
-          left:${left}%;width:${size}px;height:${size}px;
-          background:${color};border-radius:${radius};
-          --drift:${drift};
-          animation-duration:${dur}s;animation-delay:${Math.random()*0.4}s;
-        `;
-        container.appendChild(el);
-        el.addEventListener('animationend', () => el.remove());
-      }, i * 16);
-    }
-  }
-  return { launch };
-})();
-
-
-/* ── チェックリスト ── */
-const Checklist = (() => {
-  const KEY = 'ise-tabi-checklist';
-
-  function save(states) {
-    try { localStorage.setItem(KEY, JSON.stringify(states)); } catch (_) {}
-  }
-  function load() {
-    try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (_) { return {}; }
+  /* ─────────────────────────────────────────
+     2. チェックリスト
+  ───────────────────────────────────────── */
+  function loadStates() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; }
+    catch (_) { return {}; }
   }
 
-  function applyCheck(item, checked) {
-    const box = item.querySelector('.check-box');
+  function saveStates(states) {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(states)); }
+    catch (_) {}
+  }
+
+  function applyState(item, checked) {
+    const btn  = item.querySelector('.check-btn');
+    const icon = item.querySelector('.check-icon');
+    const label = item.querySelector('.check-label');
+
     if (checked) {
       item.classList.add('checked');
-      if (box) box.textContent = '✓';
+      btn.setAttribute('aria-pressed', 'true');
+      if (icon)  icon.textContent = '✓';
+      if (label) label.setAttribute('aria-label', label.textContent + '（完了）');
     } else {
       item.classList.remove('checked');
-      if (box) box.textContent = '';
+      btn.setAttribute('aria-pressed', 'false');
+      if (icon)  icon.textContent = '';
+      if (label) label.removeAttribute('aria-label');
     }
   }
 
-  function updateBanner(items) {
-    const banner = document.getElementById('complete-banner');
-    if (!banner) return;
+  function checkAllDone(items) {
     const allDone = [...items].every(it => it.classList.contains('checked'));
-    banner.style.display = allDone ? 'block' : 'none';
-    if (allDone) Confetti.launch();
+    const msg     = document.getElementById('complete-msg');
+    if (!msg) return;
+    if (allDone) {
+      msg.classList.add('visible');
+    } else {
+      msg.classList.remove('visible');
+    }
   }
 
-  function init() {
+  function initChecklist() {
     const items  = document.querySelectorAll('.check-item');
     if (!items.length) return;
-    const states = load();
+
+    const states = loadStates();
 
     items.forEach((item, idx) => {
-      if (states[idx]) applyCheck(item, true);
+      // 状態を復元
+      if (states[idx]) applyState(item, true);
 
-      item.addEventListener('click', () => {
-        const next = !item.classList.contains('checked');
-        applyCheck(item, next);
+      const btn = item.querySelector('.check-btn');
+      if (!btn) return;
+
+      btn.addEventListener('click', () => {
+        const next     = !item.classList.contains('checked');
+        applyState(item, next);
+
+        // 保存
         const newStates = {};
         items.forEach((it, i) => { newStates[i] = it.classList.contains('checked'); });
-        save(newStates);
-        updateBanner(items);
+        saveStates(newStates);
+
+        // 完了メッセージ
+        checkAllDone(items);
       });
     });
 
-    updateBanner(items);
+    // 復元後に完了判定
+    checkAllDone(items);
   }
 
-  return { init };
+  /* ─────────────────────────────────────────
+     初期化
+  ───────────────────────────────────────── */
+  function init() {
+    initAccordion();
+    initChecklist();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
 })();
