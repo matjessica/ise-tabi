@@ -302,6 +302,266 @@ button { cursor: pointer; border: none; background: none; font: inherit; color: 
 }
 
 /* =============================================
+   移動ガイドカード
+   ============================================= */
+.move-card {
+  padding: 0;
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+.move-card-light {
+  border-top-color: rgba(0,0,0,.07);
+}
+.move-card .inner { padding-top: 24px; padding-bottom: 24px; }
+
+.move-header {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.move-label {
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+.move-label-light { color: var(--accent); }
+
+.move-route-text {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  flex: 1;
+  letter-spacing: -.01em;
+}
+.move-route-light { color: var(--text-light); }
+
+.move-dur {
+  font-size: 12px;
+  color: rgba(255,255,255,.4);
+  flex-shrink: 0;
+}
+.move-dur-light { color: var(--text-muted); }
+
+.move-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 16px;
+  border-radius: 10px;
+  background: rgba(255,255,255,.05);
+}
+.move-grid-light {
+  background: rgba(0,0,0,.04);
+}
+
+.mg-item {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+.mg-k {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,.35);
+  flex-shrink: 0;
+  width: 28px;
+}
+.move-grid-light .mg-k { color: var(--text-muted); }
+
+.mg-v {
+  font-size: 14px;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+.move-grid-light .mg-v { color: var(--text-light); }
+
+.move-tip {
+  font-size: 13px;
+  color: rgba(255,255,255,.5);
+  line-height: 1.7;
+  margin-top: 4px;
+}
+.move-card-light .move-tip { color: var(--text-muted); }
+
+/* =============================================
+   情報グリッド
+   ============================================= */
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: rgba(0,0,0,.07);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+
+.ig-item {
+  background: var(--white);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ig-k {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.ig-v {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-light);
+  line-height: 1.4;
+}
+
+/* =============================================
+   サブセクション（アコーディオン内）
+   ============================================= */
+.sub-section {
+  margin-bottom: 20px;
+}
+.sub-section:last-child { margin-bottom: 0; }
+
+.sub-title {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+.sub-title-sm { font-size: 11px; margin-bottom: 8px; }
+
+.sub-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+/* 番号付きリスト */
+.order-list {
+  list-style: none;
+  counter-reset: ol-counter;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.order-list li {
+  counter-increment: ol-counter;
+  font-size: 14px;
+  color: var(--text-light);
+  line-height: 1.6;
+  padding-left: 24px;
+  position: relative;
+}
+.order-list li::before {
+  content: counter(ol-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(10,132,255,.1);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding-top: 1px;
+}
+
+/* 時間タグ */
+.time-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.time-tag {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-light);
+  background: rgba(0,0,0,.06);
+  border-radius: 6px;
+  padding: 5px 12px;
+  letter-spacing: .5px;
+}
+
+/* ダーク背景の detail-list */
+.detail-dark li { color: rgba(255,255,255,.75); }
+.detail-dark li::before { color: rgba(255,255,255,.3); background: none; }
+
+/* ダーク背景の accordion-btn */
+.acc-dark {
+  color: rgba(255,255,255,.5) !important;
+}
+.acc-dark:hover { color: rgba(255,255,255,.8) !important; }
+
+/* =============================================
+   グルメリスト
+   ============================================= */
+.gourmet-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-top: 8px;
+}
+
+.gourmet-item {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(0,0,0,.07);
+}
+.gourmet-item:last-child { border-bottom: none; }
+
+.gi-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 5px;
+  flex-wrap: wrap;
+}
+
+.gi-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.gi-price {
+  font-size: 12px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.gi-dist {
+  font-size: 12px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.gi-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* =============================================
    Day sticky header
    ============================================= */
 .day-sticky {

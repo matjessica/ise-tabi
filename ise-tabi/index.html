@@ -16,18 +16,16 @@
   <section class="s-hero" id="hero">
     <div class="img-block" data-fallback="#050e1a">
       <div class="parallax-wrap">
-        <img class="parallax-img"
-             src="assets/images/hero.jpg"
-             srcset="assets/images/hero.jpg 1x, assets/images/hero.jpg 2x"
-             alt="英虞湾の朝靄"
-             loading="eager"
-             decoding="async">
+        <img class="parallax-img" src="assets/images/hero.jpg"
+             alt="英虞湾の朝靄" loading="eager" decoding="async">
       </div>
       <div class="overlay overlay-both">
         <div class="hero-body" id="hero-body">
           <p class="hero-en fade-hero">Ise-Shima Journey</p>
           <h1 class="hero-h1">
-            <span class="line-wrap"><span class="line-inner fade-hero" style="animation-delay:.1s">秋の伊勢志摩旅</span></span>
+            <span class="line-wrap">
+              <span class="line-inner fade-hero" style="animation-delay:.1s">秋の伊勢志摩旅</span>
+            </span>
           </h1>
           <p class="hero-catch fade-hero" style="animation-delay:.25s">祈りと海と、しまかぜと。</p>
           <p class="hero-meta fade-hero" style="animation-delay:.4s">2泊3日 · 女性2名 · 大阪難波発</p>
@@ -73,15 +71,43 @@
       <span class="day-place">鳥羽</span>
     </header>
 
-    <!-- shimakaze -->
+    <!-- 移動ガイド: しまかぜ -->
+    <div class="move-card s-dark fade-in">
+      <div class="inner">
+        <div class="move-header">
+          <span class="move-label">移動</span>
+          <span class="move-route-text">大阪難波 → 鳥羽</span>
+          <span class="move-dur">1時間36分</span>
+        </div>
+        <div class="move-grid">
+          <div class="mg-item"><span class="mg-k">出発</span><span class="mg-v">10:40</span></div>
+          <div class="mg-item"><span class="mg-k">到着</span><span class="mg-v">12:16</span></div>
+          <div class="mg-item"><span class="mg-k">列車</span><span class="mg-v">しまかぜ</span></div>
+          <div class="mg-item"><span class="mg-k">料金</span><span class="mg-v">約5,040円〜</span></div>
+        </div>
+        <button class="accordion-btn acc-dark" aria-expanded="false">
+          <span>しまかぜ乗車ガイド</span>
+          <svg class="acc-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+            <polyline points="2,4 7,10 12,4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="accordion-body">
+          <ul class="detail-list detail-dark">
+            <li>予約は乗車1ヶ月前の10:30から。展望席は即日完売することも</li>
+            <li>5号車がカフェ車両（先着順）。松阪牛カレー・赤福・限定スイーツあり</li>
+            <li>火曜運休・1日1往復のみ。難波10:20頃には改札内へ</li>
+            <li>特別料金＝乗車券＋特急料金＋しまかぜ料金（計3種）</li>
+            <li>個室（和風・洋風）は2名〜利用可。旅の特別感UP</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- しまかぜ画像 -->
     <div class="img-block fade-in" data-fallback="#0d1b2a">
       <div class="parallax-wrap">
-        <img class="parallax-img"
-             src="assets/images/shimakaze.jpg"
-             srcset="assets/images/shimakaze.jpg 1x, assets/images/shimakaze.jpg 2x"
-             alt="しまかぜ走行シーン"
-             loading="lazy"
-             decoding="async">
+        <img class="parallax-img" src="assets/images/shimakaze.jpg"
+             alt="しまかぜ走行シーン" loading="lazy" decoding="async">
       </div>
       <div class="overlay overlay-bottom">
         <div class="overlay-text">
@@ -91,15 +117,11 @@
       </div>
     </div>
 
-    <!-- aquarium -->
+    <!-- 鳥羽水族館画像 -->
     <div class="img-block fade-in" data-fallback="#061428">
       <div class="parallax-wrap">
-        <img class="parallax-img"
-             src="assets/images/aquarium.jpg"
-             srcset="assets/images/aquarium.jpg 1x, assets/images/aquarium.jpg 2x"
-             alt="鳥羽水族館"
-             loading="lazy"
-             decoding="async">
+        <img class="parallax-img" src="assets/images/aquarium.jpg"
+             alt="鳥羽水族館" loading="lazy" decoding="async">
       </div>
       <div class="overlay overlay-bottom">
         <div class="overlay-text">
@@ -109,27 +131,91 @@
       </div>
     </div>
 
-    <!-- detail -->
+    <!-- 鳥羽水族館 詳細 -->
     <div class="detail-wrap s-light">
       <div class="inner">
+        <div class="info-grid">
+          <div class="ig-item"><span class="ig-k">開館</span><span class="ig-v">9:30〜17:00</span></div>
+          <div class="ig-item"><span class="ig-k">料金</span><span class="ig-v">大人 2,800円</span></div>
+          <div class="ig-item"><span class="ig-k">所要</span><span class="ig-v">2〜3時間</span></div>
+          <div class="ig-item"><span class="ig-k">休館</span><span class="ig-v">年中無休</span></div>
+        </div>
+
         <button class="accordion-btn" aria-expanded="false">
-          <span>詳細を見る</span>
+          <span>見どころ・スケジュール</span>
           <svg class="acc-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
             <polyline points="2,4 7,10 12,4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
         <div class="accordion-body">
-          <ul class="detail-list">
-            <li>ラッコ・ジュゴン・アシカショー</li>
-            <li>全館バリアフリー対応</li>
-            <li>所要目安：2〜3時間</li>
-            <li>開館直後12:30ごろが空いておすすめ</li>
-          </ul>
+          <div class="sub-section">
+            <p class="sub-title">🦭 アシカショー</p>
+            <div class="time-tags">
+              <span class="time-tag">10:30</span>
+              <span class="time-tag">13:00</span>
+              <span class="time-tag">15:30</span>
+            </div>
+            <p class="sub-note">パフォーマンススタジアム開催。早めに席を確保して</p>
+          </div>
+          <div class="sub-section">
+            <p class="sub-title">🦦 ラッコ（2頭）</p>
+            <ul class="detail-list">
+              <li>メイ：鼻にキズあり、白っぽい毛、いたずら好き</li>
+              <li>キラ：顔周りが黄みがかり、長いヒゲ、おっとり</li>
+            </ul>
+          </div>
+          <div class="sub-section">
+            <p class="sub-title">🐟 ジュゴン「セレナ」</p>
+            <ul class="detail-list">
+              <li>日本国内で唯一飼育。「人魚の海」エリアで展示</li>
+              <li>世界的にも飼育例が極めて少ない希少種</li>
+            </ul>
+          </div>
+          <div class="sub-section">
+            <p class="sub-title">💡 おすすめの過ごし方</p>
+            <ul class="detail-list">
+              <li>12:30〜13:00着で入館→アシカショー13:00が理想</li>
+              <li>全館バリアフリー対応・車いす貸出あり</li>
+              <li>入館料はKKdayなど旅行サイトで少し安く買える</li>
+            </ul>
+          </div>
+        </div>
+
+        <button class="accordion-btn" aria-expanded="false" style="margin-top:16px">
+          <span>🍽 周辺ランチ</span>
+          <svg class="acc-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+            <polyline points="2,4 7,10 12,4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="accordion-body">
+          <div class="gourmet-list">
+            <div class="gourmet-item">
+              <div class="gi-header">
+                <span class="gi-name">浜幸</span>
+                <span class="gi-dist">鳥羽駅すぐ</span>
+              </div>
+              <p class="gi-desc">漁師直営。手こね寿司・海鮮丼が名物</p>
+            </div>
+            <div class="gourmet-item">
+              <div class="gi-header">
+                <span class="gi-name">海女小屋 はまなみ</span>
+                <span class="gi-dist">市街地</span>
+              </div>
+              <p class="gi-desc">伊勢エビ・アワビ・サザエの炭火網焼き体験</p>
+            </div>
+            <div class="gourmet-item">
+              <div class="gi-header">
+                <span class="gi-name">花さんご</span>
+                <span class="gi-dist">水族館内</span>
+              </div>
+              <p class="gi-desc">大水槽を見ながら食事。外出不要で便利</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- stay -->
+    <!-- 宿泊 -->
     <div class="stay-block">
       <p class="stay-title fade-in">鳥羽の温泉旅館（未定）</p>
       <p class="stay-desc fade-in" style="transition-delay:.1s">鳥羽湾を望む温泉と、海の幸。</p>
@@ -146,15 +232,27 @@
       <span class="day-place">伊勢・賢島</span>
     </header>
 
-    <!-- naiku -->
+    <!-- 移動ガイド: 鳥羽→内宮 -->
+    <div class="move-card s-light move-card-light fade-in">
+      <div class="inner">
+        <div class="move-header">
+          <span class="move-label move-label-light">移動</span>
+          <span class="move-route-text move-route-light">鳥羽 → 伊勢神宮 内宮</span>
+          <span class="move-dur move-dur-light">約35分</span>
+        </div>
+        <div class="move-grid move-grid-light">
+          <div class="mg-item"><span class="mg-k">①</span><span class="mg-v">鳥羽駅 → 宇治山田（近鉄 約20分）</span></div>
+          <div class="mg-item"><span class="mg-k">②</span><span class="mg-v">宇治山田前 → 内宮前（バス 約12分・520円）</span></div>
+        </div>
+        <p class="move-tip">💡 早朝参拝がおすすめ。8時台のバスで出発すれば混雑前に参拝できる</p>
+      </div>
+    </div>
+
+    <!-- 伊勢神宮画像 -->
     <div class="img-block fade-in" data-fallback="#1a1200">
       <div class="parallax-wrap">
-        <img class="parallax-img"
-             src="assets/images/naiku.jpg"
-             srcset="assets/images/naiku.jpg 1x, assets/images/naiku.jpg 2x"
-             alt="伊勢神宮内宮・参道"
-             loading="lazy"
-             decoding="async">
+        <img class="parallax-img" src="assets/images/naiku.jpg"
+             alt="伊勢神宮内宮・参道" loading="lazy" decoding="async">
       </div>
       <div class="overlay overlay-bottom">
         <div class="overlay-text">
@@ -164,35 +262,58 @@
       </div>
     </div>
 
+    <!-- 伊勢神宮 詳細 -->
     <div class="detail-wrap s-light">
       <div class="inner">
+        <div class="info-grid">
+          <div class="ig-item"><span class="ig-k">参拝</span><span class="ig-v">5:00〜17:00（10月）</span></div>
+          <div class="ig-item"><span class="ig-k">料金</span><span class="ig-v">無料</span></div>
+          <div class="ig-item"><span class="ig-k">所要</span><span class="ig-v">90分〜2時間</span></div>
+          <div class="ig-item"><span class="ig-k">車いす</span><span class="ig-v">無料貸出あり</span></div>
+        </div>
+
         <button class="accordion-btn" aria-expanded="false">
-          <span>詳細を見る</span>
+          <span>参拝順路・マナー</span>
           <svg class="acc-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
             <polyline points="2,4 7,10 12,4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
         <div class="accordion-body">
-          <ul class="detail-list">
-            <li>宇治橋〜正宮（約90分）</li>
-            <li>秋は木漏れ日と紅葉が格別</li>
-            <li>参拝時間：5:00〜17:00（10月）</li>
-            <li>無料レンタル車いすあり</li>
-            <li>玉砂利道あり。歩きやすい靴必須</li>
-          </ul>
+          <div class="sub-section">
+            <p class="sub-title">参拝の順路</p>
+            <ol class="order-list">
+              <li>宇治橋で一礼してから渡る（右側通行）</li>
+              <li>五十鈴川御手洗場で手を清める</li>
+              <li>御正宮（天照大御神）へ参拝</li>
+              <li>荒祭宮へ（個人的なお願いはここで）</li>
+            </ol>
+          </div>
+          <div class="sub-section">
+            <p class="sub-title">参拝マナー</p>
+            <ul class="detail-list">
+              <li>参道は中央（正中）を歩かない。神の通り道</li>
+              <li>御正宮では「感謝」を伝えるのが慣わし</li>
+              <li>個人的な願い事は第一別宮・荒祭宮へ</li>
+              <li>鳥居の前後で軽く一礼を忘れずに</li>
+              <li>玉砂利道あり。歩きやすい靴が必須</li>
+            </ul>
+          </div>
+          <div class="sub-section">
+            <p class="sub-title">秋の特別な景色</p>
+            <ul class="detail-list">
+              <li>神苑（宇治橋右手）は紅葉の名所</li>
+              <li>朝霧に包まれた参道は格別の静けさ</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- okage -->
+    <!-- おかげ横丁画像 -->
     <div class="img-block fade-in" data-fallback="#1a0e00">
       <div class="parallax-wrap">
-        <img class="parallax-img"
-             src="assets/images/okage.jpg"
-             srcset="assets/images/okage.jpg 1x, assets/images/okage.jpg 2x"
-             alt="おかげ横丁"
-             loading="lazy"
-             decoding="async">
+        <img class="parallax-img" src="assets/images/okage.jpg"
+             alt="おかげ横丁" loading="lazy" decoding="async">
       </div>
       <div class="overlay overlay-bottom">
         <div class="overlay-text">
@@ -202,35 +323,96 @@
       </div>
     </div>
 
+    <!-- おかげ横丁 詳細 -->
     <div class="detail-wrap s-light">
       <div class="inner">
+        <div class="info-grid">
+          <div class="ig-item"><span class="ig-k">エリア</span><span class="ig-v">おはらい町〜おかげ横丁</span></div>
+          <div class="ig-item"><span class="ig-k">所要</span><span class="ig-v">1.5〜2時間</span></div>
+        </div>
+
         <button class="accordion-btn" aria-expanded="false">
-          <span>詳細を見る</span>
+          <span>🍡 グルメ・食べ歩きガイド</span>
+          <svg class="acc-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+            <polyline points="2,4 7,10 12,4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="accordion-body">
+          <div class="gourmet-list">
+            <div class="gourmet-item">
+              <div class="gi-header">
+                <span class="gi-name">赤福本店</span>
+                <span class="gi-price">餅2個＋茶 400円</span>
+              </div>
+              <p class="gi-desc">朝5:00から営業。店内で出来立てを味わえる。朔日餅（毎月1日限定）も人気</p>
+            </div>
+            <div class="gourmet-item">
+              <div class="gi-header">
+                <span class="gi-name">ふくすけ</span>
+                <span class="gi-price">伊勢うどん 650円〜</span>
+              </div>
+              <p class="gi-desc">三重産小麦の極太もっちり麺。やわらか〜く煮た麺に濃い醤油だれ。10:00〜17:00</p>
+            </div>
+            <div class="gourmet-item">
+              <div class="gi-header">
+                <span class="gi-name">すし久</span>
+                <span class="gi-price">てこね寿し 1,600円〜</span>
+              </div>
+              <p class="gi-desc">甘辛しょうゆ漬けカツオの本格てこね寿し。伊勢路膳（3,700円）も充実。11:00〜</p>
+            </div>
+            <div class="gourmet-item">
+              <div class="gi-header">
+                <span class="gi-name">食べ歩き</span>
+                <span class="gi-price">300円前後〜</span>
+              </div>
+              <p class="gi-desc">たこ棒・みたらし団子・揚げたてコロッケ（豚捨）など食べ歩きも充実</p>
+            </div>
+          </div>
+        </div>
+
+        <button class="accordion-btn" aria-expanded="false" style="margin-top:16px">
+          <span>🛍 お土産おすすめ</span>
           <svg class="acc-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
             <polyline points="2,4 7,10 12,4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
         <div class="accordion-body">
           <ul class="detail-list">
-            <li>赤福本店でお茶とひと休み</li>
-            <li>伊勢うどん・てこね寿司でランチ</li>
-            <li>お土産をのんびり（約2時間）</li>
-            <li>午前中が比較的空いておすすめ</li>
+            <li>赤福餅（8個入り900円〜）— 定番中の定番</li>
+            <li>伊勢うどんセット（ふくすけのお土産用）</li>
+            <li>おかげ犬サブレ — 国産バター使用・かわいいパッケージ</li>
+            <li>岩戸餅（岩戸屋）— おかめの顔の大きな看板が目印</li>
+            <li>伊勢角屋麦酒 — 地ビール・飲み比べセットも</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- optional -->
-    <div class="optional-spot s-light fade-in">
+    <!-- 移動ガイド: 伊勢→賢島 -->
+    <div class="move-card s-light move-card-light fade-in">
       <div class="inner">
-        <p class="opt-tag">+ 体力次第で</p>
-        <p class="opt-title">ミキモト真珠島</p>
-        <p class="opt-desc">海女の実演・真珠博物館。<br>鳥羽水族館のすぐ隣。</p>
+        <div class="move-header">
+          <span class="move-label move-label-light">移動</span>
+          <span class="move-route-text move-route-light">伊勢市 → 賢島</span>
+          <span class="move-dur move-dur-light">約50〜60分</span>
+        </div>
+        <div class="move-grid move-grid-light">
+          <div class="mg-item"><span class="mg-k">列車</span><span class="mg-v">近鉄特急（伊勢志摩ライナーなど）</span></div>
+          <div class="mg-item"><span class="mg-k">乗換</span><span class="mg-v">宇治山田または伊勢市駅から乗車</span></div>
+        </div>
       </div>
     </div>
 
-    <!-- stay -->
+    <!-- 任意: ミキモト -->
+    <div class="optional-spot s-light fade-in">
+      <div class="inner">
+        <p class="opt-tag">+ 体力次第で立ち寄り</p>
+        <p class="opt-title">ミキモト真珠島</p>
+        <p class="opt-desc">鳥羽水族館のすぐ隣。<br>海女の実演（夏季）・真珠博物館・ジュエリーショップ。<br>所要約1時間。入島料 大人1,650円。</p>
+      </div>
+    </div>
+
+    <!-- 宿泊 -->
     <div class="stay-block stay-light">
       <p class="stay-title fade-in">賢島のホテル（未定）</p>
       <p class="stay-desc fade-in" style="transition-delay:.1s">英虞湾の夕景と、志摩の海の幸。</p>
@@ -247,15 +429,11 @@
       <span class="day-place">英虞湾</span>
     </header>
 
-    <!-- cruise -->
+    <!-- クルーズ画像 -->
     <div class="img-block fade-in" data-fallback="#001a2c">
       <div class="parallax-wrap">
-        <img class="parallax-img"
-             src="assets/images/cruise.jpg"
-             srcset="assets/images/cruise.jpg 1x, assets/images/cruise.jpg 2x"
-             alt="エスパーニャクルーズ・英虞湾"
-             loading="lazy"
-             decoding="async">
+        <img class="parallax-img" src="assets/images/cruise.jpg"
+             alt="エスパーニャクルーズ・英虞湾" loading="lazy" decoding="async">
       </div>
       <div class="overlay overlay-bottom">
         <div class="overlay-text">
@@ -265,29 +443,89 @@
       </div>
     </div>
 
+    <!-- クルーズ詳細 -->
     <div class="detail-wrap s-light">
       <div class="inner">
+        <div class="info-grid">
+          <div class="ig-item"><span class="ig-k">料金</span><span class="ig-v">大人 1,900円</span></div>
+          <div class="ig-item"><span class="ig-k">所要</span><span class="ig-v">約50分</span></div>
+          <div class="ig-item"><span class="ig-k">乗場</span><span class="ig-v">賢島駅 徒歩2〜5分</span></div>
+          <div class="ig-item"><span class="ig-k">便数</span><span class="ig-v">1時間毎・6〜8便/日</span></div>
+        </div>
+
+        <div class="sub-section" style="padding-top:20px">
+          <p class="sub-title sub-title-sm">主な出港時間（目安）</p>
+          <div class="time-tags">
+            <span class="time-tag">9:30</span>
+            <span class="time-tag">10:30</span>
+            <span class="time-tag">11:30</span>
+            <span class="time-tag">13:30</span>
+            <span class="time-tag">14:30</span>
+            <span class="time-tag">15:30</span>
+          </div>
+          <p class="sub-note">※季節・天候により変動あり。公式サイトで要確認</p>
+        </div>
+
         <button class="accordion-btn" aria-expanded="false">
-          <span>詳細を見る</span>
+          <span>乗船ガイド・コツ</span>
           <svg class="acc-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
             <polyline points="2,4 7,10 12,4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </button>
         <div class="accordion-body">
-          <ul class="detail-list">
-            <li>座ったまま英虞湾を遊覧</li>
-            <li>体力消耗ほぼゼロ</li>
-            <li>2階席が景色◎</li>
-            <li>事前予約推奨</li>
-            <li>薄手の羽織を1枚持参すると安心</li>
+          <div class="sub-section">
+            <p class="sub-title">デッキの選び方</p>
+            <ul class="detail-list">
+              <li>3階展望デッキ：オープンエア。景色は最高だが座席少なめ</li>
+              <li>2階客室：屋内で快適。特別室「イサベラ」はクラシカルな内装</li>
+              <li>秋は薄手の羽織を1枚持参すると安心</li>
+            </ul>
+          </div>
+          <div class="sub-section">
+            <p class="sub-title">当日の注意</p>
+            <ul class="detail-list">
+              <li>出航15分前には乗り場へ。繁忙期は早めに</li>
+              <li>座ったまま英虞湾を遊覧。体力消耗ほぼゼロ</li>
+              <li>荒天・強風時は運休あり（要確認）</li>
+              <li>1〜2月は定期点検のため一時運休期間あり</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 移動ガイド: 帰路 -->
+    <div class="move-card s-dark fade-in">
+      <div class="inner">
+        <div class="move-header">
+          <span class="move-label">帰路</span>
+          <span class="move-route-text">賢島 → 大阪難波</span>
+          <span class="move-dur">2時間32分</span>
+        </div>
+        <div class="move-grid">
+          <div class="mg-item"><span class="mg-k">出発</span><span class="mg-v">12:00（賢島）</span></div>
+          <div class="mg-item"><span class="mg-k">到着</span><span class="mg-v">14:32（大阪難波）</span></div>
+          <div class="mg-item"><span class="mg-k">列車</span><span class="mg-v">近鉄特急</span></div>
+        </div>
+        <button class="accordion-btn acc-dark" aria-expanded="false">
+          <span>帰路のポイント</span>
+          <svg class="acc-icon" width="14" height="14" viewBox="0 0 14 14" aria-hidden="true">
+            <polyline points="2,4 7,10 12,4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+        <div class="accordion-body">
+          <ul class="detail-list detail-dark">
+            <li>しまかぜで戻る場合は賢島発の午後便を事前予約（1日1便）</li>
+            <li>伊勢志摩ライナーも快適でおすすめ</li>
+            <li>賢島駅の売店でお土産の買い足しも忘れずに</li>
+            <li>クルーズ後に食事してから乗車するタイミングに余裕を</li>
           </ul>
         </div>
       </div>
     </div>
 
-    <!-- return -->
     <div class="return-block">
-      <p class="return-route fade-in">賢島 12:00発 → 大阪難波 14:32着</p>
+      <p class="return-route fade-in">「また来たいね」</p>
       <p class="return-desc fade-in" style="transition-delay:.1s">近鉄特急で、ゆっくり帰阪。</p>
     </div>
 
