@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 72">
+  <!-- 車体メイン -->
+  <path d="M 30,18 L 290,18 Q 315,18 330,28 Q 340,34 338,40 Q 336,46 320,50 L 30,50 Q 8,50 2,42 L 0,36 Q 0,24 12,20 Z"
+        fill="rgba(255,255,255,0.82)"/>
+  <!-- 先頭ノーズ（左向き進行） -->
+  <path d="M 30,18 Q 8,18 2,26 L 0,36 Q 0,24 12,20 Z"
+        fill="rgba(220,235,248,0.7)"/>
+  <!-- 窓帯 -->
+  <rect x="28" y="24" width="270" height="13" rx="3" fill="rgba(100,170,210,0.55)"/>
+  <!-- オレンジ・赤ストライプ（しまかぜカラー） -->
+  <rect x="12" y="44" width="308" height="3" rx="1.5" fill="rgba(200,80,40,0.65)"/>
+  <rect x="12" y="48" width="308" height="2" rx="1" fill="rgba(240,160,40,0.55)"/>
+  <!-- 台車・車輪 -->
+  <rect x="45" y="50" width="50" height="6" rx="2" fill="rgba(160,180,200,0.6)"/>
+  <rect x="180" y="50" width="50" height="6" rx="2" fill="rgba(160,180,200,0.6)"/>
+  <rect x="270" y="50" width="40" height="6" rx="2" fill="rgba(160,180,200,0.6)"/>
+  <circle cx="58"  cy="58" r="7" fill="rgba(140,160,185,0.75)"/>
+  <circle cx="82"  cy="58" r="7" fill="rgba(140,160,185,0.75)"/>
+  <circle cx="193" cy="58" r="7" fill="rgba(140,160,185,0.75)"/>
+  <circle cx="217" cy="58" r="7" fill="rgba(140,160,185,0.75)"/>
+  <circle cx="282" cy="58" r="7" fill="rgba(140,160,185,0.75)"/>
+  <circle cx="300" cy="58" r="7" fill="rgba(140,160,185,0.75)"/>
+  <!-- パンタグラフ -->
+  <line x1="150" y1="18" x2="140" y2="8"  stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+  <line x1="150" y1="18" x2="160" y2="8"  stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+  <line x1="140" y1="8"  x2="160" y2="8"  stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+  <line x1="230" y1="18" x2="220" y2="8"  stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+  <line x1="230" y1="18" x2="240" y2="8"  stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+  <line x1="220" y1="8"  x2="240" y2="8"  stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
+</svg>

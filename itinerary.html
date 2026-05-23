@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>秋の三重旅行しおり｜伊勢・鳥羽・賢島 1泊2日</title>
+  <style>
+    :root {
+      --red:    #B5311A;
+      --orange: #D96B27;
+      --gold:   #C99A2E;
+      --cream:  #FDF6EC;
+      --white:  #FFFFFF;
+      --dark:   #2A1F1A;
+      --muted:  #6B5B52;
+      --line:   #E8D5BE;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3',
+                   'Noto Sans JP', 'Yu Gothic', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.75;
+    }
+
+    /* ── HERO ──────────────────────────────── */
+    .hero {
+      background: linear-gradient(160deg, #7B1010 0%, #B5311A 45%, #D96B27 100%);
+      color: #fff;
+      text-align: center;
+      padding: 56px 24px 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-leaves {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 20px; pointer-events: none;
+    }
+    .hero-leaves span { font-size: 120px; opacity: .06; line-height: 1; }
+    .hero h1 {
+      font-size: clamp(1.6rem, 5vw, 2.6rem);
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-shadow: 0 2px 8px rgba(0,0,0,.35);
+      position: relative;
+    }
+    .hero-sub {
+      margin-top: 10px;
+      font-size: .95rem;
+      opacity: .88;
+      position: relative;
+    }
+    .hero-tags {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      gap: 10px; margin-top: 22px; position: relative;
+    }
+    .hero-tag {
+      background: rgba(255,255,255,.18);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,.3);
+      border-radius: 999px;
+      padding: 6px 18px;
+      font-size: .85rem;
+      font-weight: 600;
+    }
+
+    /* ── WRAPPER ────────────────────────────── */
+    .wrap { max-width: 880px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    /* ── SECTION TITLE ──────────────────────── */
+    .sec-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--red);
+      margin: 48px 0 18px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid var(--gold);
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    /* ── SPOT CARDS ─────────────────────────── */
+    .spot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .spot-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 18px 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.07);
+      border-top: 4px solid var(--gold);
+    }
+    .spot-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--red);
+      margin-bottom: 10px;
+    }
+    .spot-card ul { list-style: none; }
+    .spot-card ul li {
+      font-size: .83rem;
+      color: var(--muted);
+      padding: 3px 0;
+      border-bottom: 1px solid var(--line);
+      display: flex; gap: 6px;
+    }
+    .spot-card ul li:last-child { border-bottom: none; }
+    .spot-card ul li::before { content: '▸'; color: var(--gold); flex-shrink: 0; }
+
+    /* ── DAY HEADER ─────────────────────────── */
+    .day-header {
+      background: linear-gradient(135deg, var(--red), var(--orange));
+      color: #fff;
+      border-radius: 16px;
+      padding: 20px 28px;
+      margin: 36px 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 4px 18px rgba(181,49,26,.28);
+    }
+    .day-num-badge {
+      width: 58px; height: 58px; flex-shrink: 0;
+      background: rgba(255,255,255,.22);
+      border-radius: 50%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .day-num-badge .n { font-size: 1.6rem; font-weight: 900; line-height: 1; }
+    .day-num-badge .lbl { font-size: .6rem; letter-spacing: .05em; }
+    .day-header-text h2 { font-size: 1.1rem; font-weight: 800; }
+    .day-header-text p  { font-size: .85rem; opacity: .85; margin-top: 2px; }
+
+    /* ── TIMELINE ───────────────────────────── */
+    .timeline { position: relative; padding-left: 86px; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 34px; top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--red), var(--gold));
+      border-radius: 3px;
+    }
+
+    .tl-item { position: relative; margin-bottom: 22px; }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -60px; top: 16px;
+      width: 16px; height: 16px;
+      border-radius: 50%;
+      background: var(--red);
+      border: 3px solid #fff;
+      box-shadow: 0 0 0 2px var(--red);
+    }
+    .tl-item.hl::before { background: var(--gold); box-shadow: 0 0 0 2px var(--gold); }
+
+    .tl-time {
+      position: absolute;
+      left: -86px; top: 12px;
+      width: 60px; text-align: right;
+      font-size: .78rem; font-weight: 700;
+      color: var(--red);
+    }
+
+    .tl-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 14px 18px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.07);
+      border-left: 4px solid var(--line);
+      transition: transform .18s, box-shadow .18s;
+    }
+    .tl-card:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 18px rgba(0,0,0,.11);
+    }
+    .tl-card.hl { border-left-color: var(--red); background: linear-gradient(to right, #FFF8F6, #fff); }
+
+    .tl-card h3 {
+      font-size: 1rem; font-weight: 700;
+      color: var(--red); margin-bottom: 4px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .tl-card p { font-size: .85rem; color: var(--muted); }
+    .tl-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: #FEF3E8;
+      color: var(--orange);
+      border: 1px solid #F5D9B8;
+      border-radius: 999px;
+      padding: 3px 12px;
+      font-size: .77rem; font-weight: 700;
+      margin-top: 8px;
+    }
+
+    /* ── SHIMAKAZE NOTE ─────────────────────── */
+    .shimakaze-box {
+      background: linear-gradient(135deg, #fff8f0, #fff);
+      border: 2px solid var(--gold);
+      border-radius: 14px;
+      padding: 18px 22px;
+      margin: 20px 0;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .shimakaze-box .icon { font-size: 2rem; flex-shrink: 0; }
+    .shimakaze-box h4 { font-size: .95rem; font-weight: 700; color: var(--red); margin-bottom: 4px; }
+    .shimakaze-box p  { font-size: .83rem; color: var(--muted); }
+
+    /* ── TIPS ───────────────────────────────── */
+    .tips-box {
+      background: linear-gradient(135deg, #FFF9F0, #FFF5E8);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-top: 36px;
+    }
+    .tips-box h2 {
+      font-size: 1.1rem; font-weight: 800;
+      color: var(--red); margin-bottom: 16px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .tip { display: flex; gap: 12px; margin: 12px 0; }
+    .tip-num {
+      width: 26px; height: 26px; flex-shrink: 0;
+      background: var(--gold); color: #fff;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; font-weight: 800;
+    }
+    .tip-body { font-size: .85rem; padding-top: 3px; color: var(--dark); }
+    .tip-body strong { color: var(--red); }
+
+    /* ── TRANSPORT TABLE ────────────────────── */
+    .transport-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .transport-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.07);
+      border-top: 4px solid var(--red);
+    }
+    .transport-card h3 {
+      font-size: .9rem; font-weight: 700;
+      color: var(--red); margin-bottom: 8px;
+    }
+    .transport-card ul { list-style: none; }
+    .transport-card ul li {
+      font-size: .82rem; color: var(--muted);
+      padding: 3px 0;
+      border-bottom: 1px dashed var(--line);
+      display: flex; gap: 6px;
+    }
+    .transport-card ul li:last-child { border-bottom: none; }
+
+    /* ── CHECKLIST ──────────────────────────── */
+    .check-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .check-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.07);
+    }
+    .check-card h3 {
+      font-size: .9rem; font-weight: 700;
+      color: var(--red); margin-bottom: 10px;
+    }
+    .check-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 5px 0;
+      border-bottom: 1px dashed var(--line);
+      font-size: .84rem;
+      cursor: pointer;
+    }
+    .check-item:last-child { border-bottom: none; }
+    .check-item input[type="checkbox"] {
+      width: 16px; height: 16px;
+      accent-color: var(--red);
+      flex-shrink: 0;
+    }
+    .check-item.checked label { text-decoration: line-through; color: #aaa; }
+
+    /* ── CAUTION ────────────────────────────── */
+    .caution {
+      background: #FFFBEB;
+      border-left: 4px solid #F59E0B;
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-top: 20px;
+      font-size: .84rem;
+      color: #78510A;
+    }
+    .caution strong { display: block; margin-bottom: 4px; }
+
+    /* ── FOOTER ─────────────────────────────── */
+    footer {
+      background: var(--red);
+      color: #fff;
+      text-align: center;
+      padding: 32px 20px;
+      margin-top: 50px;
+    }
+    footer p { opacity: .8; font-size: .85rem; }
+    footer .big { font-size: 1.1rem; font-weight: 700; opacity: 1; margin-bottom: 6px; }
+
+    /* ── PRINT ──────────────────────────────── */
+    @media print {
+      .hero, .day-header {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .tl-card:hover { transform: none; }
+    }
+
+    /* ── RESPONSIVE ─────────────────────────── */
+    @media (max-width: 560px) {
+      .timeline { padding-left: 64px; }
+      .timeline::before { left: 22px; }
+      .tl-item::before { left: -46px; }
+      .tl-time { left: -64px; font-size: .72rem; }
+      .day-header { flex-direction: column; text-align: center; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-leaves">
+    <span>🍂</span>
+    <span>⛩</span>
+  </div>
+  <h1>🍁 秋の三重旅行しおり 🍁</h1>
+  <p class="hero-sub">大阪難波 発着｜しまかぜで行く 伊勢・鳥羽・賢島 1泊2日</p>
+  <div class="hero-tags">
+    <span class="hero-tag">👥 2名（70代・40代）</span>
+    <span class="hero-tag">🚃 しまかぜ乗車</span>
+    <span class="hero-tag">🏨 賢島 1泊</span>
+    <span class="hero-tag">🍂 秋の旅</span>
+  </div>
+</div>
+
+
+<div class="wrap">
+
+  <!-- しまかぜ紹介 -->
+  <div class="shimakaze-box">
+    <div class="icon">🚃</div>
+    <div>
+      <h4>特急「しまかぜ」で豪華な旅の始まり</h4>
+      <p>近鉄の看板列車「しまかぜ」は、3列シートのプレミアムシートや展望席、カフェ車両を備えた特別な列車です。
+        大阪難波から約3時間、伊勢路の車窓を楽しみながら旅のはじまりを満喫しましょう。<br>
+        ※ しまかぜは火・木・土・日・祝日のみ大阪難波発の運行です。旅行日をご確認ください。</p>
+    </div>
+  </div>
+
+  <!-- 訪問スポット -->
+  <p class="sec-title">📍 訪問スポット一覧</p>
+  <div class="spot-grid">
+
+    <div class="spot-card">
+      <h3>⛩ 伊勢神宮 内宮</h3>
+      <ul>
+        <li>三重県伊勢市宇治館町1</li>
+        <li>参拝無料・早朝〜夕刻</li>
+        <li>おはらい町・おかげ横丁隣接</li>
+        <li>バスでのアクセスが便利</li>
+      </ul>
+    </div>
+
+    <div class="spot-card">
+      <h3>🐠 鳥羽水族館</h3>
+      <ul>
+        <li>三重県鳥羽市鳥羽3-3-6</li>
+        <li>開館 9:00〜17:00</li>
+        <li>近鉄鳥羽駅から徒歩5分</li>
+        <li>日本唯一のジュゴン展示</li>
+      </ul>
+    </div>
+
+    <div class="spot-card">
+      <h3>⛵ パルケクルーズ</h3>
+      <ul>
+        <li>賢島港（英虞湾）発着</li>
+        <li>所要時間 約50分</li>
+        <li>スペイン帆船型の遊覧船</li>
+        <li>真珠筏と島々の絶景</li>
+      </ul>
+    </div>
+
+    <div class="spot-card">
+      <h3>🏨 宿泊 ／ 賢島</h3>
+      <ul>
+        <li>英虞湾に浮かぶ島</li>
+        <li>近鉄賢島駅が最寄り</li>
+        <li>伊勢海老・あわびの宝庫</li>
+        <li>温泉・海の幸を堪能</li>
+      </ul>
+    </div>
+
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       DAY 1
+  ═══════════════════════════════════════════ -->
+  <div class="day-header">
+    <div class="day-num-badge">
+      <span class="n">1</span>
+      <span class="lbl">日目</span>
+    </div>
+    <div class="day-header-text">
+      <h2>大阪難波 → 伊勢神宮 → 鳥羽水族館 → 賢島</h2>
+      <p>しまかぜで出発！古都の参拝と絶景水族館を経て、海の宿へ。</p>
+    </div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <span class="tl-time">08:50</span>
+      <div class="tl-card">
+        <h3>🚉 大阪難波駅 集合</h3>
+        <p>近鉄大阪難波駅の改札前に集合。ゆとりを持って早めに！出発前にトイレや飲み物を準備しておきましょう。</p>
+      </div>
+    </div>
+
+    <div class="tl-item hl">
+      <span class="tl-time">09:10</span>
+      <div class="tl-card hl">
+        <h3>🚃 特急「しまかぜ」乗車</h3>
+        <p>大阪難波を出発。プレミアムシートでゆったり。カフェ車両では軽食・ドリンクも楽しめます。<br>
+          <strong>伊勢市駅で下車します。</strong>（しまかぜは伊勢市にも停車）</p>
+        <span class="tl-badge">🚃 しまかぜ → 伊勢市駅 下車</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-time">10:55</span>
+      <div class="tl-card">
+        <h3>🚌 伊勢市駅 → 内宮 バス移動</h3>
+        <p>宇治山田駅バスターミナルまたは伊勢市駅から路線バスで内宮前へ。所要約15分。
+          「CANバス」1日乗り放題チケットが便利でお得です。</p>
+        <span class="tl-badge">🚌 路線バス 約15分 → 内宮前 下車</span>
+      </div>
+    </div>
+
+    <div class="tl-item hl">
+      <span class="tl-time">11:20</span>
+      <div class="tl-card hl">
+        <h3>⛩ 伊勢神宮 内宮 参拝</h3>
+        <p>宇治橋を渡り、玉砂利の参道をゆっくり歩きながら御正宮へ。秋は木々が色づき、とても美しい時期です。
+          お守りやお札の授与所も立ち寄ってみましょう。</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-time">12:20</span>
+      <div class="tl-card">
+        <h3>🍜 おはらい町・おかげ横丁でランチ</h3>
+        <p>内宮すぐそばの門前町でランチ休憩。<br>
+          <strong>おすすめ：</strong>伊勢うどん、手こね寿し、松阪牛コロッケ、赤福餅など。<br>
+          ゆっくり食べて、休憩も忘れずに。</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-time">13:30</span>
+      <div class="tl-card">
+        <h3>🚌 内宮 → 宇治山田/伊勢市駅へ</h3>
+        <p>バスで駅へ戻り、鳥羽方面へ出発します。</p>
+        <span class="tl-badge">🚌 バス → 🚃 近鉄急行／特急</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-time">14:00</span>
+      <div class="tl-card">
+        <h3>🚃 伊勢市/宇治山田 → 鳥羽 移動</h3>
+        <p>近鉄で鳥羽へ。所要約20〜25分。</p>
+        <span class="tl-badge">🚃 近鉄急行 約25分</span>
+      </div>
+    </div>
+
+    <div class="tl-item hl">
+      <span class="tl-time">14:30</span>
+      <div class="tl-card hl">
+        <h3>🐠 鳥羽水族館 見学</h3>
+        <p>近鉄鳥羽駅から徒歩5分。日本で唯一のジュゴン、ラッコ、セイウチなど約1,200種の生き物を観賞できます。
+          館内はバリアフリーで安心してゆっくり見学できます。</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-time">16:30</span>
+      <div class="tl-card">
+        <h3>🚃 鳥羽 → 賢島 移動</h3>
+        <p>近鉄特急で鳥羽から賢島へ。的矢湾の美しい海の景色を楽しみながら移動。</p>
+        <span class="tl-badge">🚃 近鉄特急 約35分</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-time">17:10</span>
+      <div class="tl-card">
+        <h3>🏨 賢島 ホテルチェックイン</h3>
+        <p>英虞湾を望む旅館・ホテルでチェックイン。荷物を置いて、温泉でひとやすみ。</p>
+      </div>
+    </div>
+
+    <div class="tl-item hl">
+      <span class="tl-time">18:30</span>
+      <div class="tl-card hl">
+        <h3>🦞 夕食（ホテル）</h3>
+        <p>伊勢海老・あわびをはじめとした志摩の海の幸を贅沢なコース料理で。
+          秋は松茸やアオリイカも旬。特別な夜を楽しみましょう。</p>
+      </div>
+    </div>
+
+  </div><!-- /timeline day1 -->
+
+
+  <!-- ══════════════════════════════════════════
+       DAY 2
+  ═══════════════════════════════════════════ -->
+  <div class="day-header">
+    <div class="day-num-badge">
+      <span class="n">2</span>
+      <span class="lbl">日目</span>
+    </div>
+    <div class="day-header-text">
+      <h2>賢島 → パルケクルーズ → 大阪難波</h2>
+      <p>英虞湾の絶景クルーズで旅の締めくくり。午後帰阪。</p>
+    </div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="tl-item">
+      <span class="tl-time">07:30</span>
+      <div class="tl-card">
+        <h3>☀️ 起床・ホテル朝食</h3>
+        <p>英虞湾の朝の光の中でゆっくり朝食を。露天風呂から朝の海を眺めるのもおすすめです。</p>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-time">09:00</span>
+      <div class="tl-card">
+        <h3>🧳 チェックアウト</h3>
+        <p>荷物をまとめてチェックアウト。重い荷物は賢島駅のコインロッカーに預けるのも便利です。</p>
+      </div>
+    </div>
+
+    <div class="tl-item hl">
+      <span class="tl-time">10:20</span>
+      <div class="tl-card hl">
+        <h3>⛵ パルケクルーズ（エスパーニャクルーズ）</h3>
+        <p>賢島港発のエスパーニャクルーズで英虞湾を50分かけて遊覧。
+          スペイン帆船を模した優雅な船で、真珠の養殖筏や入り組んだ湾の島々を眺めながら優雅なひとときを。
+          乗り場は賢島駅からすぐです。</p>
+        <span class="tl-badge">⛵ 賢島港発 所要約50分</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-time">11:20</span>
+      <div class="tl-card">
+        <h3>🛍 賢島 お土産タイム</h3>
+        <p>賢島駅周辺のショップで三重のお土産を。干物、志摩産海苔、真珠アクセサリー、銘菓など。</p>
+      </div>
+    </div>
+
+    <div class="tl-item hl">
+      <span class="tl-time">11:40</span>
+      <div class="tl-card hl">
+        <h3>🚃 賢島 → 大阪難波 出発</h3>
+        <p>近鉄特急（アーバンライナー等）で帰路へ。賢島→宇治山田→伊勢中川→大阪難波のルート。
+          約2時間の旅路、旅の余韻をゆっくり楽しみましょう。</p>
+        <span class="tl-badge">🚃 近鉄特急 約2時間</span>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <span class="tl-time">13:40</span>
+      <div class="tl-card">
+        <h3>🏙 大阪難波 到着！</h3>
+        <p>大阪難波に到着。秋の三重旅行、お疲れ様でした。楽しい思い出をありがとう！</p>
+      </div>
+    </div>
+
+  </div><!-- /timeline day2 -->
+
+
+  <!-- ══════════════════════════════════════════
+       TIPS
+  ═══════════════════════════════════════════ -->
+  <div class="tips-box">
+    <h2>💡 旅のポイント・注意事項</h2>
+
+    <div class="tip">
+      <div class="tip-num">1</div>
+      <div class="tip-body">
+        <strong>しまかぜの予約は早めに！</strong>
+        乗車1ヶ月前の10:00から近鉄の窓口・アプリ・ネットで予約可能。
+        秋の行楽シーズンはすぐに満席になるので、解禁日に即予約がおすすめです。
+        <strong>※火・木・土・日・祝日のみ大阪難波発の運行</strong>なので、旅行日をご確認ください。
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num">2</div>
+      <div class="tip-body">
+        <strong>近鉄「まわりゃんせ」パスを検討</strong>
+        4日間の近鉄・バスフリーパスで、鳥羽水族館の入場券もセットになったプランがあります。
+        2名での利用なら元が取れることが多く、切符を毎回買う手間も省けます。
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num">3</div>
+      <div class="tip-body">
+        <strong>内宮は玉砂利道が続きます</strong>
+        スニーカーやウォーキングシューズがおすすめ。高いヒールや草履は疲れやすいです。
+        70代の方のペースに合わせてゆっくり歩きましょう。
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num">4</div>
+      <div class="tip-body">
+        <strong>鳥羽水族館は混雑に注意</strong>
+        秋の土日祝は込み合います。午後早めの入館がおすすめ。
+        館内は広くてバリアフリー設計なので、休みながらゆっくり見学できます。
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num">5</div>
+      <div class="tip-body">
+        <strong>パルケクルーズは悪天候時に運休あり</strong>
+        荒天・強風時は運休になることがあります。乗船当日はホテルのフロントや
+        公式サイトで運航状況を確認しておくと安心です。
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num">6</div>
+      <div class="tip-body">
+        <strong>秋の伊勢は肌寒い日もあります</strong>
+        昼間は暖かくても朝晩は冷え込みます。羽織れる上着を1枚持参しましょう。
+        特に早朝の内宮参拝では体が冷えることも。
+      </div>
+    </div>
+
+    <div class="tip">
+      <div class="tip-num">7</div>
+      <div class="tip-body">
+        <strong>ホテルの夕食は要事前予約</strong>
+        賢島の宿では食事付きプランが多いですが、オプションや時間変更がある場合は
+        予約時に確認しておきましょう。伊勢海老の活造りは時期により予約制のことも。
+      </div>
+    </div>
+
+    <div class="caution">
+      <strong>⚠ タイムスケジュールについて</strong>
+      上記の時刻はおおよその目安です。バス・電車の乗り継ぎは事前に近鉄の時刻表や
+      「Yahoo!乗換案内」でご確認ください。70代の方がいるので、無理のないペースで
+      進めることを優先し、必要に応じてスポットの滞在時間を調整してください。
+    </div>
+
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       TRANSPORT
+  ═══════════════════════════════════════════ -->
+  <p class="sec-title">🚃 主要移動まとめ</p>
+  <div class="transport-grid">
+
+    <div class="transport-card">
+      <h3>🚃 しまかぜ（難波→伊勢市）</h3>
+      <ul>
+        <li>大阪難波 09:10 発</li>
+        <li>伊勢市 10:55 着（約1h45m）</li>
+        <li>特急券＋乗車券が必要</li>
+        <li>プレミアムシートで快適</li>
+        <li>火・木・土・日・祝日のみ</li>
+      </ul>
+    </div>
+
+    <div class="transport-card">
+      <h3>🚌 宇治山田/伊勢市→内宮</h3>
+      <ul>
+        <li>CANバス または 路線バス</li>
+        <li>所要 約15〜20分</li>
+        <li>内宮前バス停 下車</li>
+        <li>1日フリーパスあり（お得）</li>
+      </ul>
+    </div>
+
+    <div class="transport-card">
+      <h3>🚃 伊勢市→鳥羽</h3>
+      <ul>
+        <li>近鉄鳥羽線 急行</li>
+        <li>所要 約25分</li>
+        <li>本数多く便利</li>
+      </ul>
+    </div>
+
+    <div class="transport-card">
+      <h3>🚃 鳥羽→賢島</h3>
+      <ul>
+        <li>近鉄志摩線 特急/急行</li>
+        <li>所要 約35〜40分</li>
+        <li>英虞湾の眺めが美しい</li>
+      </ul>
+    </div>
+
+    <div class="transport-card">
+      <h3>🚃 賢島→大阪難波（帰路）</h3>
+      <ul>
+        <li>近鉄特急（アーバンライナー等）</li>
+        <li>賢島 11:40 発 → 難波 13:40 着</li>
+        <li>所要 約2時間</li>
+        <li>特急券＋乗車券が必要</li>
+      </ul>
+    </div>
+
+    <div class="transport-card">
+      <h3>⛵ パルケクルーズ</h3>
+      <ul>
+        <li>賢島港 発着</li>
+        <li>所要 約50分</li>
+        <li>10:20 発ほか数便あり</li>
+        <li>賢島駅から徒歩すぐ</li>
+      </ul>
+    </div>
+
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       CHECKLIST
+  ═══════════════════════════════════════════ -->
+  <p class="sec-title">🎒 持ち物チェックリスト</p>
+  <div class="check-grid">
+
+    <div class="check-card">
+      <h3>📋 必須アイテム</h3>
+      <div class="check-item"><input type="checkbox" id="c1"><label for="c1">保険証・身分証明書</label></div>
+      <div class="check-item"><input type="checkbox" id="c2"><label for="c2">しまかぜ特急券・乗車券</label></div>
+      <div class="check-item"><input type="checkbox" id="c3"><label for="c3">帰りの特急券</label></div>
+      <div class="check-item"><input type="checkbox" id="c4"><label for="c4">現金・クレジットカード</label></div>
+      <div class="check-item"><input type="checkbox" id="c5"><label for="c5">ICカード（Suica・ICOCAなど）</label></div>
+      <div class="check-item"><input type="checkbox" id="c6"><label for="c6">スマートフォン・充電器</label></div>
+    </div>
+
+    <div class="check-card">
+      <h3>👟 服装・快適グッズ</h3>
+      <div class="check-item"><input type="checkbox" id="c7"><label for="c7">歩きやすいスニーカー</label></div>
+      <div class="check-item"><input type="checkbox" id="c8"><label for="c8">羽織れる上着（朝晩の冷え対策）</label></div>
+      <div class="check-item"><input type="checkbox" id="c9"><label for="c9">折りたたみ傘</label></div>
+      <div class="check-item"><input type="checkbox" id="c10"><label for="c10">常備薬・救急セット</label></div>
+      <div class="check-item"><input type="checkbox" id="c11"><label for="c11">日焼け止め・ハンドクリーム</label></div>
+      <div class="check-item"><input type="checkbox" id="c12"><label for="c12">エコバッグ（お土産用）</label></div>
+    </div>
+
+    <div class="check-card">
+      <h3>🏨 宿泊グッズ</h3>
+      <div class="check-item"><input type="checkbox" id="c13"><label for="c13">着替え（1泊分）</label></div>
+      <div class="check-item"><input type="checkbox" id="c14"><label for="c14">洗面・化粧用品</label></div>
+      <div class="check-item"><input type="checkbox" id="c15"><label for="c15">部屋着・寝巻き（備付けなければ）</label></div>
+      <div class="check-item"><input type="checkbox" id="c16"><label for="c16">ドライヤー（備付けあれば不要）</label></div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center; margin-top: 40px; padding: 20px; background: #fff; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,.07);">
+    <p style="font-size: 1.05rem; font-weight: 700; color: var(--red);">🍁 素敵な秋の旅になりますように！ 🍁</p>
+    <p style="font-size: .85rem; color: var(--muted); margin-top: 6px;">伊勢の神様に手を合わせ、海の幸を味わい、英虞湾の絶景を眺める<br>とっておきの1泊2日旅行。どうぞ安全で楽しい旅を！</p>
+  </div>
+
+</div><!-- /wrap -->
+
+
+<footer>
+  <p class="big">🍂 秋の三重旅行しおり｜伊勢・鳥羽・賢島 1泊2日</p>
+  <p>大阪難波 発着｜参加者：70代・40代 2名</p>
+</footer>
+
+<script>
+  // チェックボックスで打ち消し線トグル
+  document.querySelectorAll('.check-item input[type="checkbox"]').forEach(cb => {
+    cb.addEventListener('change', () => {
+      cb.closest('.check-item').classList.toggle('checked', cb.checked);
+    });
+  });
+</script>
+
+</body>
+</html>

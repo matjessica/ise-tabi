@@ -1,0 +1,621 @@
+/* =============================================
+   CSS変数・リセット
+   ============================================= */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap');
+
+:root {
+  --c-deep:    #1B5E8A;
+  --c-accent:  #1ABC9C;
+  --c-bg:      #F0F8FF;
+  --c-text:    #1A2F45;
+  --c-card:    #FFFFFF;
+  --c-mid:     #2E86C1;
+  --c-light:   #AED6F1;
+  --c-shadow:  rgba(27, 94, 138, 0.18);
+  --radius:    16px;
+  --max-w:     430px;
+  --font-serif: 'Noto Serif JP', serif;
+  --font-sans:  'Noto Sans JP', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--c-bg);
+  color: var(--c-text);
+  max-width: var(--max-w);
+  margin: 0 auto;
+  min-height: 100vh;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* =============================================
+   スクロールプログレスバー
+   ============================================= */
+#progress-bar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 4px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--c-deep), var(--c-accent), var(--c-deep));
+  background-size: 200% 100%;
+  z-index: 1000;
+  transition: width 0.1s linear;
+  animation: wave-progress 3s linear infinite;
+}
+@keyframes wave-progress {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+/* =============================================
+   ヘッダー
+   ============================================= */
+header {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  background: linear-gradient(170deg, #0d3b5e 0%, #1B5E8A 50%, #1ABC9C 100%);
+}
+
+#wave-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.header-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  padding: 16px;
+  text-align: center;
+}
+
+.header-label {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.75);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.header-title {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.2;
+  text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  display: flex;
+  gap: 2px;
+}
+
+.header-title span {
+  display: inline-block;
+  animation: wave-text 2.4s ease-in-out infinite;
+}
+
+@keyframes wave-text {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-5px); }
+}
+
+.header-sub {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: rgba(255,255,255,0.8);
+  margin-top: 6px;
+}
+
+.header-catch {
+  font-family: var(--font-serif);
+  font-size: 13px;
+  color: rgba(255,255,255,0.92);
+  margin-top: 10px;
+  line-height: 1.7;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.25);
+}
+
+/* =============================================
+   バッジ横スクロール
+   ============================================= */
+.badge-scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 16px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+.badge-scroll::-webkit-scrollbar { display: none; }
+
+.badge {
+  flex-shrink: 0;
+  background: linear-gradient(135deg, var(--c-deep), var(--c-mid));
+  color: #fff;
+  border-radius: 20px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px var(--c-shadow);
+  letter-spacing: 0.5px;
+}
+
+/* =============================================
+   セクション共通
+   ============================================= */
+main { padding: 0 0 40px; }
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--c-deep);
+  padding: 24px 16px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* =============================================
+   タブナビゲーション
+   ============================================= */
+.tab-nav {
+  display: flex;
+  gap: 0;
+  padding: 0 16px;
+  border-bottom: 2px solid var(--c-light);
+  margin-bottom: 8px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 10px 4px;
+  border: none;
+  background: transparent;
+  font-family: var(--font-serif);
+  font-size: 13px;
+  font-weight: 600;
+  color: #8aabb8;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s;
+  letter-spacing: 0.5px;
+}
+
+.tab-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 50%;
+  width: 0; height: 3px;
+  background: linear-gradient(90deg, var(--c-deep), var(--c-accent));
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tab-btn.active {
+  color: var(--c-deep);
+}
+.tab-btn.active::after {
+  width: 80%;
+}
+
+/* =============================================
+   タブパネル
+   ============================================= */
+.tab-panels {
+  position: relative;
+  overflow: hidden;
+}
+
+.tab-panel {
+  display: none;
+  padding: 0 16px;
+  animation: slide-in 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.tab-panel.active { display: block; }
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* =============================================
+   タイムライン
+   ============================================= */
+.timeline {
+  position: relative;
+  padding-left: 28px;
+  margin-top: 12px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 9px; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--c-deep), var(--c-accent));
+  border-radius: 1px;
+}
+
+.tl-item {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.tl-dot {
+  position: absolute;
+  left: -24px; top: 4px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--c-deep);
+  border: 2px solid var(--c-accent);
+  transform: scale(0);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 1;
+}
+.tl-dot.pop { transform: scale(1); }
+
+/* =============================================
+   カード共通
+   ============================================= */
+.card {
+  background: var(--c-card);
+  border-radius: var(--radius);
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 20px var(--c-shadow);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform;
+}
+
+.card:active,
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 28px rgba(27, 94, 138, 0.28);
+}
+
+.card-icon {
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  background: linear-gradient(90deg, var(--c-deep), var(--c-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-body {
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--c-text);
+}
+
+.card-body li {
+  list-style: none;
+  padding-left: 16px;
+  position: relative;
+  margin-bottom: 4px;
+}
+.card-body li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--c-accent);
+}
+
+/* 移動カード */
+.move-card {
+  background: linear-gradient(135deg, #e8f4fd, #d0ece7);
+  border-left: 4px solid var(--c-deep);
+}
+.move-card .card-title { font-size: 14px; }
+.move-route {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--c-deep);
+  margin-bottom: 4px;
+}
+.move-detail {
+  font-size: 12.5px;
+  color: #4a7d9a;
+}
+
+/* フェードイン */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =============================================
+   カードフリップ（ワンポイント）
+   ============================================= */
+.flip-wrapper {
+  perspective: 900px;
+  margin-bottom: 14px;
+  cursor: pointer;
+}
+
+.flip-card {
+  position: relative;
+  width: 100%;
+  height: 130px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flip-wrapper.flipped .flip-card {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px var(--c-shadow);
+}
+
+.flip-front {
+  background: linear-gradient(135deg, var(--c-deep), var(--c-mid));
+  color: #fff;
+}
+
+.flip-back {
+  background: linear-gradient(135deg, var(--c-accent), #16a085);
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+.flip-front .flip-icon { font-size: 28px; margin-bottom: 8px; }
+.flip-front .flip-label {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 600;
+}
+.flip-hint {
+  font-size: 11px;
+  opacity: 0.75;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+}
+
+.flip-back .flip-text {
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* =============================================
+   予約チェックリスト
+   ============================================= */
+.checklist-section {
+  padding: 0 16px 24px;
+}
+
+.checklist-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--c-deep);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--c-card);
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 2px 12px var(--c-shadow);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.check-item.checked {
+  background: linear-gradient(135deg, #d5f5ee, #e8f8f5);
+}
+
+.check-box {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  border: 2.5px solid var(--c-light);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s;
+  font-size: 14px;
+}
+
+.check-item.checked .check-box {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  animation: bounce-check 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes bounce-check {
+  0%   { transform: scale(0.6); }
+  60%  { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+.check-label {
+  font-size: 14px;
+  line-height: 1.5;
+  flex: 1;
+}
+
+.check-item.checked .check-label {
+  color: #1a7a5e;
+}
+
+.check-urgent {
+  font-size: 11px;
+  color: #e74c3c;
+  font-weight: 700;
+  background: #fdecea;
+  border-radius: 6px;
+  padding: 2px 7px;
+  flex-shrink: 0;
+}
+
+/* 完了バナー */
+#complete-banner {
+  display: none;
+  background: linear-gradient(135deg, var(--c-accent), var(--c-deep));
+  color: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  text-align: center;
+  margin-top: 16px;
+  font-family: var(--font-serif);
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 4px 20px rgba(26,188,156,0.4);
+  animation: pop-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes pop-in {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* =============================================
+   フッター
+   ============================================= */
+footer {
+  background: linear-gradient(135deg, var(--c-deep), #0d3b5e);
+  color: rgba(255,255,255,0.85);
+  text-align: center;
+  padding: 28px 16px;
+  font-size: 12.5px;
+  line-height: 2;
+}
+
+.footer-anchor {
+  font-size: 28px;
+  display: inline-block;
+  animation: sway 3s ease-in-out infinite;
+  transform-origin: top center;
+  margin-bottom: 8px;
+}
+@keyframes sway {
+  0%, 100% { transform: rotate(-8deg); }
+  50%       { transform: rotate(8deg); }
+}
+
+.footer-title {
+  font-family: var(--font-serif);
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+/* =============================================
+   紙吹雪（DOM自作）
+   ============================================= */
+#confetti-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  width: 10px; height: 10px;
+  border-radius: 2px;
+  opacity: 0.9;
+  animation: confetti-fall linear forwards;
+}
+
+@keyframes confetti-fall {
+  0%   { transform: translateY(0) rotate(0deg) translateX(0); opacity: 1; }
+  80%  { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg) translateX(var(--drift)); opacity: 0; }
+}
+
+/* =============================================
+   印刷対応
+   ============================================= */
+@media print {
+  #progress-bar, #confetti-container { display: none !important; }
+  body { background: #fff; max-width: 100%; }
+  header { background: none !important; height: auto; }
+  #wave-canvas { display: none; }
+  .header-content { position: static; color: #000; }
+  .header-title span, .header-catch, .header-sub, .header-label { color: #000; text-shadow: none; }
+  .header-title span { animation: none; -webkit-text-fill-color: #000; }
+  .tab-panel { display: block !important; }
+  .tab-nav { display: none; }
+  .card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+  .card:hover { transform: none; }
+  .badge { background: none; color: #000; border: 1px solid #999; }
+  .flip-back { display: none; }
+  .flip-front { position: static; background: none; color: #000; transform: none; }
+  footer { background: none; color: #000; }
+  .footer-anchor { animation: none; }
+}
+
+/* =============================================
+   モーション軽減
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .fade-up { opacity: 1; transform: none; }
+  .tl-dot  { transform: scale(1); }
+}
